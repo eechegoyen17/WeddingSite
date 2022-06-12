@@ -1,0 +1,132 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+:root{
+    --mainDarkColor: rgb(12, 12, 12);
+    --mainDarkColorHighlight: rgba(74,71,70,1);
+    --mainLightColor: rgba(255,255,255,1);
+    --mainLightColorShadow: rgb(212, 212, 212);
+
+    --LightFontColor: rgba(255,255,255,1);
+    --DarkFontColor: rgba(46, 46, 46, 1);   
+
+    --InlinePadding: clamp(0.5rem,5vw,3rem);
+    --BlockPadding: clamp(0.75rem,10vw,3rem);
+}
+
+.MenuButton{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    display: inline-flex;
+    flex-wrap:wrap;
+    width: clamp(4rem, 15vw, 8rem);
+    height: 3rem;
+    z-index: 9999;
+    background-color: var(--mainLightColorShadow);
+    border: none;
+    outline: none;
+    color: var(--DarkFontColor);    
+    padding: 0 1rem;
+    text-decoration: none;
+    border-radius: 25px;
+    overflow: hidden;
+    font-size: clamp(0.8rem, 3vw, 1.3rem);
+    cursor: pointer; 
+}
+
+.menu__text, .menu__image{
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    padding-inline: 0.2rem;
+}
+
+.menu__image > img{
+    width: 1.5rem;
+}
+
+.PrimeNavigation{
+    position: fixed;
+    inset: 10px 0 30% 0;
+    padding-block: 20px;
+    background: rgba(30,25,25,1);
+    width: 100%;
+    z-index: 5000;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: all ease-in-out 350ms;
+}
+
+.PrimeNavigation[data-visible="true"]{
+    transform: translateX(0%);
+    transition: all ease-in-out 350ms;
+}
+
+nav
+{    
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-block: 10px;
+}
+
+
+nav li
+{
+    display: block;
+    margin: 20px 0px;
+    position: relative;
+}
+
+nav a{
+    color: var(--LightFontColor);
+    text-decoration: none;
+}
+
+nav li>a::after{
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background: var(--LightFontColor);
+    position: absolute;
+    
+    transition: all ease-in 250ms;
+}
+
+nav li>a:hover::after{
+    content: '';
+    display: block;
+    height: 5px;
+    width: 100%;
+    background: var(--LightFontColor);
+    position: absolute;
+}
+
+@media (min-width: 1000px) {
+
+    .PrimeNavigation{
+        position: fixed;
+        inset: 10px 0 30% 0;
+        padding-block: 20px;
+        background: rgba(30,25,25,0.8);
+        width: 30%;
+        min-width: 425px;
+        max-width: 500px;
+        z-index: 5000;
+        height: 100%;
+        transform: translateX(-100%);
+        transition: all ease-in-out 350ms;
+    }
+
+    @supports (backdrop-filter: blur(1rem)){
+        .PrimeNavigation{
+            background: rgba(30,25,25,0.5);
+            backdrop-filter: blur(1rem);
+        }
+    }
+}
