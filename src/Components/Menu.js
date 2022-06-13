@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import './Menu.css'
 import {MenuItems} from './MenuItems'
-import hamburgericon from '../Icons/menu-icon.png'
-import closeicon from '../Icons/close-icon.png'
+import {ReactComponent as HamburgerIcon} from '../Icons/menu-icon.svg'
+import {ReactComponent as CloseIcon} from '../Icons/close-icon.svg'
 
 class Menu extends Component {
     constructor(){
@@ -11,7 +11,7 @@ class Menu extends Component {
             ariaexpanded: false,
             datavisible: false,
             menuLabel: "Menú",
-            menuIcon: hamburgericon
+            menuIcon: <HamburgerIcon />
         }
     }
 
@@ -24,7 +24,7 @@ class Menu extends Component {
                 ariaexpanded: false,
                 datavisible: false,
                 menuLabel: "Menú",
-                menuIcon: hamburgericon
+                menuIcon: <HamburgerIcon />
             })
         )
         :
@@ -33,7 +33,7 @@ class Menu extends Component {
                 ariaexpanded: true,
                 datavisible: true,
                 menuLabel: "Cerrar",
-                menuIcon: closeicon
+                menuIcon: <CloseIcon />
             })
         )
     }
@@ -44,19 +44,19 @@ class Menu extends Component {
             <div>
                 <button className="MenuButton" aria-controls="NavigationDiv" aria-expanded={ariaexpanded} onClick={() => this.onMenuClick()}>
                     <span className="sr-only"></span>
-                    <span className="menu__image" id="menuBtnImg"><img src={menuIcon} alt="MenuIcon" /></span>
+                    <span className="menu__image" id="menuBtnImg">{menuIcon}</span>
                     <span className="menu__text" id="menuBtnText">{menuLabel}</span>
                 </button>
-                <div className="PrimeNavigation" id="NavigationDiv" data-visible={datavisible}>
+                <div className="PrimeNavigation tc" id="NavigationDiv" data-visible={datavisible}>
                     <nav>
                         <h1><a href={MenuItems[0].link}>M & E</a></h1>
                     </nav>
                     <nav>
-                        <ul>
+                        <ul className="pl0">
                         {
                             MenuItems.map((user, i) =>{
                                 return (
-                                    <li key={i}><a href={MenuItems[i].link}>{MenuItems[i].name}</a></li>
+                                    <li className="pb4" key={i}><a href={MenuItems[i].link}>{MenuItems[i].name}</a></li>
                                 )
                             })
                         }

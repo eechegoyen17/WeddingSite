@@ -45,13 +45,13 @@
     padding-inline: 0.2rem;
 }
 
-.menu__image > img{
+.menu__image > svg{
     width: 1.5rem;
 }
 
 .PrimeNavigation{
     position: fixed;
-    inset: 10px 0 30% 0;
+    inset: 0px 0 30% 0;
     padding-block: 20px;
     background: rgba(30,25,25,1);
     width: 100%;
@@ -78,7 +78,7 @@ nav
 nav li
 {
     display: block;
-    margin: 20px 0px;
+    margin: 0px;
     position: relative;
 }
 
