@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Menu.css'
+// import './Menu.css'
 import {MenuItems} from './MenuItems'
 import {ReactComponent as HamburgerIcon} from '../Icons/menu-icon.svg'
 import {ReactComponent as CloseIcon} from '../Icons/close-icon.svg'
@@ -17,7 +17,6 @@ class Menu extends Component {
 
     onMenuClick = (event) => {
         const { ariaexpanded } = this.state
-        // console.log({ariaexpanded});
         return (ariaexpanded) ?
         (
             this.setState ({
@@ -49,14 +48,14 @@ class Menu extends Component {
                 </button>
                 <div className="PrimeNavigation tc" id="NavigationDiv" data-visible={datavisible}>
                     <nav>
-                        <h1><a href={MenuItems[0].link}>M & E</a></h1>
+                        <div className="f1 garamond"><a href={MenuItems[0].link}>M & E</a></div>
                     </nav>
                     <nav>
                         <ul className="pl0">
                         {
                             MenuItems.map((user, i) =>{
                                 return (
-                                    <li className="pb4" key={i}><a href={MenuItems[i].link}>{MenuItems[i].name}</a></li>
+                                    <li className="pb4 f2 garamond" key={i}><a href={MenuItems[i].link}>{MenuItems[i].name}</a></li>
                                 )
                             })
                         }
