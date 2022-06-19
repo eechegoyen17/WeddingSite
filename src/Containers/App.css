@@ -55,7 +55,7 @@ html, body, .ContainerBody
 }
 
 .MenuButton{
-    position: absolute;
+    position: fixed;
     top: 30px;
     left: 15px;
     display: inline-flex;

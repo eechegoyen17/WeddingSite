@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-// import './Menu.css'
 import {MenuItems} from './MenuItems'
 import {ReactComponent as HamburgerIcon} from '../Icons/menu-icon.svg'
 import {ReactComponent as CloseIcon} from '../Icons/close-icon.svg'
+import Logo from '../Images/Logo.png'
 
 class Menu extends Component {
     constructor(){
@@ -48,14 +48,14 @@ class Menu extends Component {
                 </button>
                 <div className="PrimeNavigation tc" id="NavigationDiv" data-visible={datavisible}>
                     <nav>
-                        <div className="f1 garamond"><a href={MenuItems[0].link}>M & E</a></div>
+                        <div className="f1 garamond"><a href={MenuItems[0].link} onClick={() => this.onMenuClick()}><img src={Logo} alt="Logo"/></a></div>
                     </nav>
                     <nav>
                         <ul className="pl0">
                         {
                             MenuItems.map((user, i) =>{
                                 return (
-                                    <li className="pb4 f2 garamond" key={i}><a href={MenuItems[i].link}>{MenuItems[i].name}</a></li>
+                                    <li className="pb4 f2 garamond" key={i}><a href={MenuItems[i].link} onClick={() => this.onMenuClick()}>{MenuItems[i].name}</a></li>
                                 )
                             })
                         }
