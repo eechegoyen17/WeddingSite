@@ -11,7 +11,8 @@ class Menu extends Component {
             ariaexpanded: false,
             datavisible: false,
             menuLabel: "Menú",
-            menuIcon: <HamburgerIcon />
+            menuIcon: <HamburgerIcon />,
+            menuBg: "PrimeNavigation PrimeNavTransparent tc"
         }
     }
 
@@ -36,9 +37,25 @@ class Menu extends Component {
             })
         )
     }
+    
+    onWindowScroll = e => {
+        const windowScroll = window.scrollY;
+        if (windowScroll >= 200) 
+            { this.setState({menuBg: "PrimeNavigation PrimeNavWhite tc" })}
+        else   
+            { this.setState({menuBg: "PrimeNavigation PrimeNavTransparent tc"})}
+      
+    }
+
+    componentDidMount() {
+        window.addEventListener("scroll", this.onWindowScroll);
+    }
 
     render(){
-        const { ariaexpanded, datavisible,menuLabel,menuIcon } = this.state
+        const { ariaexpanded, datavisible,menuLabel,menuIcon,menuBg } = this.state;
+        const iCount = MenuItems.length;
+        const iCountHalf = iCount/2;
+       
         return (
             <div>
                 <button className="MenuButton" aria-controls="NavigationDiv" aria-expanded={ariaexpanded} onClick={() => this.onMenuClick()}>
@@ -46,21 +63,28 @@ class Menu extends Component {
                     <span className="menu__image" id="menuBtnImg">{menuIcon}</span>
                     <span className="menu__text" id="menuBtnText">{menuLabel}</span>
                 </button>
-                <div className="PrimeNavigation tc" id="NavigationDiv" data-visible={datavisible}>
-                    <nav>
-                        <div className="f1 garamond"><a href={MenuItems[0].link} onClick={() => this.onMenuClick()}><img src={Logo} alt="Logo"/></a></div>
-                    </nav>
-                    <nav>
-                        <ul className="pl0">
-                        {
-                            MenuItems.map((user, i) =>{
-                                return (
-                                    <li className="pb4 f2 garamond" key={i}><a href={MenuItems[i].link} onClick={() => this.onMenuClick()}>{MenuItems[i].name}</a></li>
-                                )
-                            })
-                        }
-                        </ul>
-                    </nav>
+                <div className={menuBg} id="NavigationDiv" data-visible={datavisible}>
+                    <div className="PrimeNavigationWrapper">
+                        <nav>
+                            <div className="navLogo f1 garamond"><a href="#Main" onClick={() => this.onMenuClick()}><img src={Logo} alt="Logo"/></a></div>
+                        </nav>
+                        <nav>
+                            <ul>
+                            {
+                                MenuItems.map((user, i) =>{
+                                    return ((i) === iCountHalf || (i) === 0) ?
+                                    (
+                                        <li className="pb4 f3 splitLeft" key={i}><a href={MenuItems[i].link} onClick={() => this.onMenuClick()}>{MenuItems[i].name}</a></li>
+                                    )
+                                    :
+                                    (
+                                        <li className="pb4 f3" key={i}><a href={MenuItems[i].link} onClick={() => this.onMenuClick()}>{MenuItems[i].name}</a></li>
+                                    )
+                                })
+                            }
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         );
