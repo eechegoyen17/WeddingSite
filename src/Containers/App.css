@@ -44,6 +44,10 @@ html, body, .ContainerBody
     overflow-x: hidden; 
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 .ContainerBody:before
 {
     content: '';
@@ -163,7 +167,7 @@ nav li>a::after{
     display: block;
     height: 5px;
     width: 0%;
-    background: var(--DarkFontColor);
+    background: #007CEE;
     position: absolute;    
     transition: all ease-in 250ms;
 }
@@ -172,7 +176,7 @@ nav li>a:hover::after{
     content: '';
     display: block;
     height: 5px;
-    width: 100%;
+    width: 63%;
     background: var(--DarkFontColor);
     position: absolute;
 }
@@ -323,6 +327,10 @@ nav li>a:hover::after{
 }
 
 @media (min-width: 1000px) {
+    html{
+        scroll-padding-top: 90px;
+    }
+
     .MenuButton{
         display: none;
     }

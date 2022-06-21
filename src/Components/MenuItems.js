@@ -1,17 +1,17 @@
 export const MenuItems = [
     {
         "id": "1",
-        "name": "Inicio",
+        "name": "Invitación",
         "link": "#Inicio"
     },
     {
         "id": "2",
-        "name": "RSVP",
-        "link": "#RSVP"
+        "name": "Fecha",
+        "link": "#Fecha"
     },
     {
         "id": "3",
-        "name": "Lugar",
+        "name": "Detalles",
         "link": "#Lugar"
     },
     {
@@ -21,13 +21,23 @@ export const MenuItems = [
     },
     {
         "id": "5",
-        "name": "QA",
-        "link": "#QA"
+        "name": "Confirmación",
+        "link": "#RSVP"
     },
     {
         "id": "6",
+        "name": "Regalos",
+        "link": "#Regalos"
+    },
+    {
+        "id": "7",
         "name": "Momentos",
         "link": "#Momentos"
+    },
+    {
+        "id": "8",
+        "name": "Gracias",
+        "link": "#Gracias"
     }
 
 ]
