@@ -66,7 +66,7 @@ class Menu extends Component {
                 <div className={menuBg} id="NavigationDiv" data-visible={datavisible}>
                     <div className="PrimeNavigationWrapper">
                         <nav>
-                            <div className="navLogo f1 garamond"><a href="#Main" onClick={() => this.onMenuClick()}><img src={Logo} alt="Logo"/></a></div>
+                            <div className="navLogo f1 garamond"><a href="#Main" onClick={() => this.onMenuClick()}><img src={Logo} alt="Logo" width="75px"/></a></div>
                         </nav>
                         <nav>
                             <ul>
